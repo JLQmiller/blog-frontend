@@ -1,0 +1,28 @@
+
+
+@mixin flex-align($vertical: center, $horizontal: center)
+  display: flex
+  align-items: $vertical
+  justify-content: $horizontal
+
+@mixin flex-xy-center
+  @include flex-align()
+
+
+// 单行截断
+@mixin text-overflow($text-overflow: ellipsis)
+  text-overflow: $text-overflow
+  white-space: nowrap
+  overflow: hidden
+
+@mixin text-ellipsis()
+  @include text-overflow()
+
+@mixin text-mute
+  color: $text-mute
+
+@mixin icon-link
+  display: block
+  width: $icon-lg-size
+  height: $icon-lg-size
+  margin: 0 8px 15px

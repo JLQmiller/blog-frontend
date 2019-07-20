@@ -1,0 +1,47 @@
+<!-- 宽屏侧边栏 -->
+<section class="blog-left-nav">
+  <div class="blog-left-nav-header">
+    <bui-avatar class="blog-left-nav-header-avatar" src="assets/images/avatar.jpg" size="max"></bui-avatar>
+    <div>
+      <h2><a>我知道你是在扯淡</a></h2>
+    </div>
+    <div style="text-align: center">
+      <p>Blanc的博客</p>
+      <p>一个会写Maxwell的前端码农</p>
+    </div>
+  </div>
+
+  <div class="blog-left-nav-body">
+    <div><a>首页</a></div>
+    <div><a>UseLess</a></div>
+
+    <div>
+      <span (click)="collapse()">所有文章 </span>/<span (click)="collapse()"> 关于我</span>
+    </div>
+  </div>
+
+  <div class="blog-left-nav-footer">
+    <a [href]="githubLink" target="_blank">
+      <bui-avatar icon="github" size="md"></bui-avatar>
+    </a>
+    <a [href]="zhiHuLink" target="_blank">
+      <bui-avatar icon="zhihu" size="md"></bui-avatar>
+
+    </a>
+  </div>
+
+</section>
+
+<!-- 活动目录 && 关于我 组件 -->
+<section class="blog-tools" >
+
+</section>
+
+<!-- 主要内容界面 -->
+<section class="blog-main" [@rightOut]="isOpen ? 'open' : 'hide'">
+  <div class="blog-main-mobile-nav">
+    <div class="blog-main-mobile-nav-header"></div>
+    <div class="blog-main-mobile-nav-footer"></div>
+  </div>
+  <router-outlet></router-outlet>
+</section>

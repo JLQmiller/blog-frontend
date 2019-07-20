@@ -1,0 +1,8 @@
+<div class="bui-avatar-container">
+  <!-- icon头像 -->
+  <svg class="bui-avatar-icon" [buiIcon]="icon" *ngIf="displayMode==='icon'"></svg>
+  <!-- 图片头像 -->
+  <img [src]="src" (error)="imgError($event)" *ngIf="displayMode==='img'"/>
+  <!-- 文字头像 -->
+  <span class="bui-avatar-string" #textEl [ngStyle]="textStyles" *ngIf="displayMode==='text'">{{text}}</span>
+</div>
