@@ -8,7 +8,11 @@ import { LayoutMenuComponent } from './layout-menu/layout-menu.component';
 import { LayoutAboutComponent } from './layout-about/layout-about.component';
 
 @NgModule({
-  declarations: [LayoutComponent, LayoutMenuComponent, LayoutAboutComponent],
+  declarations: [
+    LayoutComponent,
+    LayoutMenuComponent,
+    LayoutAboutComponent
+  ],
   imports: [
     CommonModule,
     RouterModule,

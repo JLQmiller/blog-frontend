@@ -2,6 +2,8 @@ import {
   Component,
   HostBinding,
   HostListener,
+  ViewChild,
+  ElementRef,
 } from '@angular/core';
 
 import {
@@ -18,73 +20,67 @@ import {
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.sass'],
   animations: [
-    // trigger('changeColor', [
-    //   state('open', style({
-    //     backgroundColor: 'red',
-    //   })),
-    //   state('closed', style({
-    //     backgroundColor: 'black',
-    //   })),
-    //   transition('open <=> closed', [
-    //     animate('2s ease-in'),
-    //   ]),
-    //   transition('open => show', [
-    //     animate('4s', style({backgroundColor: 'green'})),
-    //   ]),
-    // ]),
-    // trigger('showMenu', [
-    //   state('hide', style({
-
-    //   })),
-    //   state('show', style({
-
-    //   })),
-    //   transition('hide <=> show', [
-    //     animate('.8s ease-in'),
-    //   ]),
-    // ]),
-    trigger('rightOut', [
-      state('open', style({
+    trigger('leftMenuIn', [
+      state('menuShow', style({
         left: '300px',
       })),
-      state('hide', style({
+      state('menuHide', style({
         left: '0',
       })),
-      transition('open => hide', [
-        animate('2s cubic-bezier(.215,.61,.355,1)'),
-      ]),
-      transition('* => open', [
-        animate('2s cubic-bezier(.215,.61,.355,1)'),
+      transition('menuShow <=> menuHide', [
+        animate('2s cubic-bezier(.215, .61, .355, 1)')
       ])
+    ]),
+    trigger('rightContentOut', [
+      state('contentHide', style({
+        left: '300px',
+      })),
+      state('contentShow', style({
+        left: '0',
+      })),
+      transition('contentHide <=> contentShow', [
+        animate('2s cubic-bezier(.215, .61, .355, 1)'),
+      ]),
     ]),
   ],
 })
 export class LayoutComponent {
   @HostBinding('class.blog-layout') readonly hostClass = true;
 
-  isOpen = false;
+  @ViewChild('menuBtn', {static: false}) menuBtn: ElementRef;
 
-  isMenu = false;
+  @ViewChild('menu', {static: false}) menu: ElementRef;
 
-  githubLink = 'https://github.com/';
+  leftMenu = true;
+  isLayoutMenuOpen = false;
+  githubLink = 'https://github.com/JLQmiller';
   zhiHuLink = 'https://www.zhihu.com/people/gao-jian-26-60/collections';
 
-  onResize(event) {
-    console.log(event);
-    const target = event.target;
-    console.log(target);
-    // this.width =
+  @HostListener('document:click', ['$event'])
+  onclick(btn: Event) {
+    if (this.menu.nativeElement.contains(btn.target) || this.menuBtn.nativeElement.contains(btn.target)) {
+      this.layoutMenuOpen();
+    } else {
+      this.layoutMenuClose();
+    }
   }
 
   constructor() { }
 
+  showLeftMenu(): void {
+    this.leftMenu = true;
+  }
 
-  collapse() {
-    // this.
-    console.log('1');
-    this.isOpen = !this.isOpen;
-    this.isMenu = !this.isMenu;
-    console.log(this.isOpen);
+  showLeftAbout(): void {
+    this.leftMenu = false;
+  }
+
+  layoutMenuOpen(): void {
+    this.isLayoutMenuOpen = true;
+  }
+
+  layoutMenuClose(): void {
+    this.isLayoutMenuOpen = false;
   }
 
 }

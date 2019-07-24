@@ -3,10 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ListManageComponent } from './list-manage/list-manage.component';
 
-const routes: Routes = [{
-  path: 'manage',
-  component: ListManageComponent,
-}];
+const routes: Routes = [
+  {
+    path: '',
+    component: ListManageComponent,
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

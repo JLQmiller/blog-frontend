@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'blog-fe-layout-about',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./layout-about.component.sass']
 })
 export class LayoutAboutComponent implements OnInit {
+  @HostBinding('class.blog-fe-layout-about') hostClass = true;
 
   constructor() { }
 

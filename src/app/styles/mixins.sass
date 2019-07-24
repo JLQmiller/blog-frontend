@@ -8,6 +8,13 @@
 @mixin flex-xy-center
   @include flex-align()
 
+@mixin flex-xy-center-column
+  flex-direction: column
+  @include flex-xy-center
+
+@mixin flex-xy-center-row
+  flex-direction: row
+  @include flex-xy-center
 
 // 单行截断
 @mixin text-overflow($text-overflow: ellipsis)

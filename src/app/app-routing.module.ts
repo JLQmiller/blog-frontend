@@ -9,11 +9,7 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: 'about',
-        loadChildren: () => import('./about/about.module').then(m => m.AboutModule),
-      },
-      {
-        path: 'list',
+        path: '',
         loadChildren: () => import('./list/list.module').then(m => m.ListModule),
       },
       {

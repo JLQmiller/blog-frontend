@@ -13,13 +13,17 @@
       true,
       "attribute",
       "app",
-      "camelCase"
+      "camelCase",
+      "blog",
+      "blog-fe"
     ],
     "component-selector": [
       true,
       "element",
       "app",
-      "kebab-case"
+      "kebab-case",
+      "blog",
+      "blog-fe"
     ],
     "import-blacklist": [
       true,
