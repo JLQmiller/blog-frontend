@@ -75,6 +75,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "blog-frontend:build",
+            "proxyConfig": "proxy.conf.json",
             "port": 6866
           },
           "configurations": {

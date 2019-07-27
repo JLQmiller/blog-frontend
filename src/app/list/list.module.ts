@@ -16,7 +16,7 @@ import { BuiModule } from '../shared';
     CommonModule,
     ListRoutingModule,
     BuiModule,
-    MarkdownModule.forRoot(),
+    MarkdownModule.forChild(),
   ]
 })
 export class ListModule { }

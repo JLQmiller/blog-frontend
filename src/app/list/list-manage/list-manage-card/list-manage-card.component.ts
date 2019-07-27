@@ -1,4 +1,4 @@
-import { Component, OnInit, HostBinding, Host } from '@angular/core';
+import { Component, OnInit, HostBinding, Input } from '@angular/core';
 
 @Component({
   selector: 'blog-fe-list-manage-card',
@@ -6,6 +6,12 @@ import { Component, OnInit, HostBinding, Host } from '@angular/core';
   styleUrls: ['./list-manage-card.component.sass']
 })
 export class ListManageCardComponent implements OnInit {
+  @Input() articleInfo = {
+    title: '',
+    content: '',
+    createTime: 0
+  };
+
   @HostBinding('class.blog-list-manage-card') hostClass = true;
 
   markDown = `## Markdown __rulez__!
@@ -27,7 +33,6 @@ export class ListManageCardComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

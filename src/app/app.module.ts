@@ -13,6 +13,7 @@ import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 import { NgZorroAntdModule, NZ_I18N, zh_CN} from 'ng-zorro-antd';
 import zh from '@angular/common/locales/zh';
 import { registerLocaleData } from '@angular/common';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 registerLocaleData(zh);
 
 @NgModule({
@@ -23,8 +24,11 @@ registerLocaleData(zh);
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     BrowserAnimationsModule,
-    MarkdownModule.forRoot(),
+    MarkdownModule.forRoot({
+      loader: HttpClient,
+    }),
     NgZorroAntdModule,
     SharedModule,
     LayoutModule,

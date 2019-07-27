@@ -1,5 +1,3 @@
-<!-- <ng-container *ngFor="let variable of variables"> -->
-  <blog-fe-list-manage-card></blog-fe-list-manage-card>
-
-
-<!-- </ng-container> -->
+<ng-container *ngFor="let articleInfo of articleData.body">
+  <blog-fe-list-manage-card [articleInfo]="articleInfo"></blog-fe-list-manage-card>
+</ng-container>

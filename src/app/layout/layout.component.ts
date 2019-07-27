@@ -1,5 +1,6 @@
 import {
   Component,
+  OnInit,
   HostBinding,
   HostListener,
   ViewChild,
@@ -14,6 +15,8 @@ import {
   transition,
   keyframes,
 } from '@angular/animations';
+
+import { ArticlesService } from '../shared';
 
 @Component({
   selector: 'blog-fe-layout',
@@ -44,7 +47,7 @@ import {
     ]),
   ],
 })
-export class LayoutComponent {
+export class LayoutComponent implements OnInit {
   @HostBinding('class.blog-layout') readonly hostClass = true;
 
   @ViewChild('menuBtn', {static: false}) menuBtn: ElementRef;
@@ -65,7 +68,16 @@ export class LayoutComponent {
     }
   }
 
-  constructor() { }
+  constructor(
+    private articleService: ArticlesService,
+  ) { }
+
+  ngOnInit() {
+    this.articleService.fetchArticleListInfo()
+    .subscribe(allArticles => {
+      console.log(allArticles);
+    });
+  }
 
   showLeftMenu(): void {
     this.leftMenu = true;

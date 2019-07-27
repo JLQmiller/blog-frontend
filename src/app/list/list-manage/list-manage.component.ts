@@ -1,5 +1,7 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 
+import { ArticlesService } from '../../shared';
+
 @Component({
   selector: 'blog-fe-list-manage',
   templateUrl: './list-manage.component.html',
@@ -8,9 +10,19 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 export class ListManageComponent implements OnInit {
   @HostBinding('class') readonly layoutClass = 'blog-list-manage blog-layout';
 
-  constructor() { }
+  articleData = {};
+
+  constructor(
+    private articleService: ArticlesService,
+  ) { }
 
   ngOnInit() {
+    this.articleService.fetchArticleListInfo()
+    .subscribe(articleData => {
+      this.articleData = articleData;
+    });
+
+    console.log(this.articleData);
   }
 
 }
