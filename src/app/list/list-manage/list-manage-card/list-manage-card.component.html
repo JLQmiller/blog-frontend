@@ -1,15 +1,19 @@
 <div class="article-header">
-  <h1 class="article-header-title"><a>{{articleInfo.title}}</a></h1>
-  <a class="article-header-calendar">
+  <h1 class="article-header-title">
+    <a [routerLink]="['/article', articleInfo._id]">{{articleInfo.title}}</a>
+  </h1>
+  <a
+    [routerLink]="['/article', articleInfo._id]"
+    class="article-header-calendar">
     <svg buiIcon="calendar" size="sm"></svg>{{articleInfo.createTime | date: 'y/MM/dd'}}
   </a>
 </div>
 <div class="article-info">
-  <markdown [data]="articleInfo.content"></markdown>
+  <markdown lineNumbers [data]="articleInfo.abstract"></markdown>
 </div>
 <div class="article-footer">
   <div class="article-footer-entrance">
-    <a>
+    <a [routerLink]="['/article', articleInfo._id]">
       展开全文
       <svg buiIcon="angle-right" size="sm"></svg>
       <svg buiIcon="angle-right" size="sm"></svg>

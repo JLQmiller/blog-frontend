@@ -1,4 +1,5 @@
 import { Component, OnInit, HostBinding, Input } from '@angular/core';
+import { ArticlesService } from '../../../shared';
 
 @Component({
   selector: 'blog-fe-list-manage-card',
@@ -8,8 +9,10 @@ import { Component, OnInit, HostBinding, Input } from '@angular/core';
 export class ListManageCardComponent implements OnInit {
   @Input() articleInfo = {
     title: '',
+    abstract: '暂无简介',
     content: '',
-    createTime: 0
+    createTime: 0,
+    _id: 0,
   };
 
   @HostBinding('class.blog-list-manage-card') hostClass = true;
@@ -31,7 +34,7 @@ export class ListManageCardComponent implements OnInit {
   ### Blockquote
   > Blockquote to the max`;
 
-  constructor() { }
+  constructor( ) { }
 
   ngOnInit() { }
 

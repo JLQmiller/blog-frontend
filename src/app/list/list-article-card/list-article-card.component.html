@@ -1,1 +1,9 @@
-<p>list-article-card works!</p>
+<div class="article-header">
+  <h1 class="article-header-title">{{ specArticleInfo.title }}</h1>
+  <div class="article-header-calendar">
+    <svg buiIcon="calendar" size="sm"></svg>{{ specArticleInfo.createTime | date: 'y/MM/dd'}}
+  </div>
+</div>
+<div class="article-info">
+  <markdown lineNumbers [data]="specArticleInfo.content"></markdown>
+</div>

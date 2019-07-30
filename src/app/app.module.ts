@@ -28,6 +28,18 @@ registerLocaleData(zh);
     BrowserAnimationsModule,
     MarkdownModule.forRoot({
       loader: HttpClient,
+      markedOptions: {
+        provide: MarkedOptions,
+        useValue: {
+          gfm: true,
+          tables: true,
+          breaks: false,
+          pedantic: false,
+          sanitize: false,
+          smartLists: true,
+          smartypants: false,
+        }
+      }
     }),
     NgZorroAntdModule,
     SharedModule,

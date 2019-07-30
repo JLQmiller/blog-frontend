@@ -14,4 +14,8 @@ export class ArticlesService {
   fetchArticleListInfo(): Observable<any> {
     return this.http.get('/article/fetch') as Observable<any>;
   }
+
+  fetchSingle(id: number): Observable<any> {
+    return this.http.get(`/article/fetchSingle/${id}`) as Observable<any>;
+  }
 }
