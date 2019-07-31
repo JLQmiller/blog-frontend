@@ -18,6 +18,12 @@ import {
 
 import { ArticlesService } from '../shared';
 
+class Article {
+  title: string;
+  _id: number;
+  createTime: number;
+}
+
 @Component({
   selector: 'blog-fe-layout',
   templateUrl: './layout.component.html',
@@ -34,6 +40,7 @@ import { ArticlesService } from '../shared';
         animate('2s cubic-bezier(.215, .61, .355, 1)')
       ])
     ]),
+
     trigger('rightContentOut', [
       state('contentHide', style({
         left: '300px',
@@ -59,6 +66,8 @@ export class LayoutComponent implements OnInit {
   githubLink = 'https://github.com/JLQmiller';
   zhiHuLink = 'https://www.zhihu.com/people/gao-jian-26-60/collections';
 
+  articleMenuList: Article[];
+
   @HostListener('document:click', ['$event'])
   onclick(btn: Event) {
     if (this.menu.nativeElement.contains(btn.target) || this.menuBtn.nativeElement.contains(btn.target)) {
@@ -75,7 +84,7 @@ export class LayoutComponent implements OnInit {
   ngOnInit() {
     this.articleService.fetchArticleListInfo()
     .subscribe(allArticles => {
-      console.log(allArticles);
+      this.articleMenuList = allArticles.body;
     });
   }
 
@@ -93,6 +102,12 @@ export class LayoutComponent implements OnInit {
 
   layoutMenuClose(): void {
     this.isLayoutMenuOpen = false;
+  }
+
+  articleChanged() {
+    setTimeout(() => {
+      this.layoutMenuClose();
+    });
   }
 
 }

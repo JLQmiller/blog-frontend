@@ -1,0 +1,25 @@
+@import '../../styles/util.sass'
+
+\:host
+  width: 100%
+  overflow: auto
+
+.menu-list
+  @include flex-align(flex-start, center)
+  flex-direction: column
+  border: .5px dotted $border-default
+  padding: 5px 20px
+
+  &:hover
+    background: hsla(0,0%,100%,.5)
+    cursor: pointer
+
+  &-title,
+  &-calendar
+    width: 100%
+    @include flex-align(center, flex-start)
+    margin: 3px 5px
+    font-size: 14px
+
+    svg
+      margin-right: 8px

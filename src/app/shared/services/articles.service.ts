@@ -12,7 +12,11 @@ export class ArticlesService {
   ) { }
 
   fetchArticleListInfo(): Observable<any> {
-    return this.http.get('/article/fetch') as Observable<any>;
+    return this.http.post('/article/fetch', {pageNumber: 1, pageSize: 5}) as Observable<any>;
+  }
+
+  fetchArticleListMenu(): Observable<any> {
+    return this.http.post('/article/fetch', {}) as Observable<any>;
   }
 
   fetchSingle(id: number): Observable<any> {

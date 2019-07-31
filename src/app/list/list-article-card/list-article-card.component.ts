@@ -25,7 +25,6 @@ export class ListArticleCardComponent implements OnInit {
   ngOnInit() {
     this.route.params
     .subscribe(params => {
-      console.log(params.id);
       this.fetchSpecArticle(params.id);
     });
   }
@@ -33,7 +32,6 @@ export class ListArticleCardComponent implements OnInit {
   fetchSpecArticle(articleId: number) {
     this.articleService.fetchSingle(articleId)
     .subscribe(articleInfo => {
-      console.log(articleInfo);
       this.specArticleInfo = articleInfo.article;
     });
   }

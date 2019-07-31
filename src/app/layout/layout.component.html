@@ -12,10 +12,10 @@
   </div>
 
   <div class="blog-left-nav-body">
-    <div><a routerLink="">首页</a></div>
-
+    <div class="blog-left-nav-body-item"><a routerLink="">首页</a></div>
     <div class="blog-left-nav-body-menu" #menuBtn>
-      <span (click)="showLeftMenu()">所有文章 </span>/<span (click)="showLeftAbout()"> 关于我</span>
+      <div class="blog-left-nav-body-item" (click)="showLeftMenu()">所有文章 </div>
+      <div class="blog-left-nav-body-item" (click)="showLeftAbout()">关于我</div>
     </div>
   </div>
 
@@ -29,8 +29,8 @@
   </div>
 </section>
 <!-- 活动目录 && 关于我 组件 -->
-<section #menu style="overflow: hidden" class="blog-tools" [@leftMenuIn]="isLayoutMenuOpen ? 'menuShow' : 'menuHide'">
-  <blog-fe-layout-menu *ngIf="leftMenu"></blog-fe-layout-menu>
+<section #menu class="blog-tools" [@leftMenuIn]="isLayoutMenuOpen ? 'menuShow' : 'menuHide'">
+  <blog-fe-layout-menu (articleChanged)="articleChanged()" *ngIf="leftMenu"></blog-fe-layout-menu>
   <blog-fe-layout-about *ngIf="!leftMenu"></blog-fe-layout-about>
 </section>
 

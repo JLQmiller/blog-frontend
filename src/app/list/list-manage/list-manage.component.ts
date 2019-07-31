@@ -21,8 +21,6 @@ export class ListManageComponent implements OnInit {
     .subscribe(articleData => {
       this.articleData = articleData;
     });
-
-    console.log(this.articleData);
   }
 
 }

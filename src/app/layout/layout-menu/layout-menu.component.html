@@ -1,1 +1,17 @@
-<p>layout-menu works!</p>
+<ul>
+  <li
+    class="menu-list"
+    *ngFor="let articleInfo of articleMenuList"
+    (click)="enterArticle(articleInfo._id)"
+  >
+    <div class="menu-list-title">
+      <svg buiIcon="file-text" size="md"></svg>
+      <div>{{articleInfo.title}}</div>
+    </div>
+    <div class="menu-list-calendar">
+      <svg buiIcon="calendar" size="md"></svg>
+      <div>{{articleInfo.createTime | date: 'yyyy-MM-dd'}}</div>
+    </div>
+
+  </li>
+</ul>

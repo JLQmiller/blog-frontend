@@ -4,6 +4,7 @@
   height: 100vh
   display: flex
   flex-direction: row
+  overflow: hidden
 
 .blog-left-nav
   width: 300px
@@ -31,7 +32,7 @@
 
   &-header
     @include flex-xy-center-column
-    padding: 48px 0
+    padding: 48px 0 20px
 
     a
       color: $text-title
@@ -40,14 +41,22 @@
     @include flex-xy-center-column
 
     &-menu
+      @include flex-xy-center-column
 
-      span
-        &:hover
-          cursor: pointer
-          color: #a08d99
+    &-item
+      margin: 8px
+
+    &-item,
+    a
+      color: $text-title
+
+      &:hover
+        cursor: pointer
+        color: #a08d99
 
   &-footer
     @include flex-xy-center-row
+    margin-top: 20px
 
     a:nth-child(1)
       @include icon-link
@@ -65,7 +74,7 @@
   width: 300px
   height: 100vh
   position: fixed
-
+  overflow: auto
   @media screen and (max-width: $mobile-width)
 
 .blog-main
