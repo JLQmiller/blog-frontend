@@ -11,8 +11,16 @@ export class ArticlesService {
     private http: HttpClient,
   ) { }
 
-  fetchArticleListInfo(): Observable<any> {
-    return this.http.post('/article/fetch', {pageNumber: 1, pageSize: 5}) as Observable<any>;
+  fetchTotalNumber(): Observable<any> {
+    return this.http.get('/article/fetchtotalnumber') as Observable<any>;
+  }
+
+  fetchArticleListInfo(number: number, size: number): Observable<any> {
+    const pageInfo = {
+      pageNumber: number,
+      pageSize: size,
+    };
+    return this.http.post('/article/fetch', pageInfo) as Observable<any>;
   }
 
   fetchArticleListMenu(): Observable<any> {

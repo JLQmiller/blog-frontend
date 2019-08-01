@@ -7,7 +7,8 @@ import { ListArticleCardComponent } from './list-article-card/list-article-card.
 import { ListManageCardComponent } from './list-manage/list-manage-card/list-manage-card.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { BuiModule } from '../shared';
-import { ListMenuComponent } from './list-menu/list-menu.component';
+import { NzPaginationModule } from 'ng-zorro-antd/pagination';
+import { NgZorroAntdModule, NZ_I18N, zh_CN} from 'ng-zorro-antd';
 
 // TODO
 @NgModule({
@@ -15,13 +16,14 @@ import { ListMenuComponent } from './list-menu/list-menu.component';
     ListManageComponent,
     ListArticleCardComponent,
     ListManageCardComponent,
-    ListMenuComponent
   ],
   imports: [
     CommonModule,
     ListRoutingModule,
     BuiModule,
     MarkdownModule.forChild(),
+    NgZorroAntdModule,
+    NzPaginationModule,
   ]
 })
 export class ListModule { }

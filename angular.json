@@ -30,13 +30,19 @@
             },
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+                "output": "/assets/"
+              }
             ],
             "styles": [
               "src/app/styles/index.sass",
               "node_modules/prismjs/themes/prism-okaidia.css",
               "node_modules/prismjs/plugins/line-highlight/prism-line-highlight.css",
-              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css"
+              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css",
+              "node_modules/ng-zorro-antd/ng-zorro-antd.min.css"
             ],
             "scripts": [
               "node_modules/marked/lib/marked.js",

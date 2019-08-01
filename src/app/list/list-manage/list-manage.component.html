@@ -1,3 +1,10 @@
 <ng-container *ngFor="let articleInfo of articleData.body">
   <blog-fe-list-manage-card [articleInfo]="articleInfo"></blog-fe-list-manage-card>
 </ng-container>
+<div class="list-pagination">
+  <nz-pagination
+    [(nzPageIndex)]="pageNumber"
+    [nzTotal]="pageTotal"
+    (nzPageIndexChange)="pageIndexChange($event)"
+  ></nz-pagination>
+</div>

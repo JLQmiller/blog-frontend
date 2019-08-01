@@ -5,6 +5,7 @@ import {
   HostListener,
   ViewChild,
   ElementRef,
+  Renderer2,
 } from '@angular/core';
 
 import {
@@ -40,7 +41,6 @@ class Article {
         animate('2s cubic-bezier(.215, .61, .355, 1)')
       ])
     ]),
-
     trigger('rightContentOut', [
       state('contentHide', style({
         left: '300px',
@@ -77,12 +77,32 @@ export class LayoutComponent implements OnInit {
     }
   }
 
+  @HostListener('window:resize', ['$event'])
+  onresize(event) {
+    const width = event.target.innerWidth;
+    console.log(event.target.innerWidth);
+    if (width > 800) {
+      this.renderer.setStyle(this.menu.nativeElement, 'position', 'fixed');
+      if (this.isLayoutMenuOpen) {
+        // this.layoutMenuOpen();
+      }
+    } else {
+      if (this.isLayoutMenuOpen) {
+        console.log('change left');
+        this.layoutMenuClose();
+        this.renderer.setStyle(this.menu.nativeElement, 'position', 'relative');
+        // this.renderer.removeStyle(this.menu.nativeElement, 'left');
+      }
+    }
+  }
+
   constructor(
     private articleService: ArticlesService,
+    private renderer: Renderer2,
   ) { }
 
   ngOnInit() {
-    this.articleService.fetchArticleListInfo()
+    this.articleService.fetchArticleListInfo(0, 0)
     .subscribe(allArticles => {
       this.articleMenuList = allArticles.body;
     });
