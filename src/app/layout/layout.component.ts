@@ -104,6 +104,7 @@ export class LayoutComponent implements OnInit {
   ngOnInit() {
     this.articleService.fetchArticleListInfo(0, 0)
     .subscribe(allArticles => {
+      console.log(allArticles);
       this.articleMenuList = allArticles.body;
     });
   }
