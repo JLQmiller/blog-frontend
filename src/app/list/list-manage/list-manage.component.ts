@@ -2,6 +2,13 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 
 import { ArticlesService } from '../../shared';
 
+class ArticleData {
+  _id: string;
+  title: string;
+  abstract: string;
+  createTime: number;
+}
+
 @Component({
   selector: 'blog-fe-list-manage',
   templateUrl: './list-manage.component.html',
@@ -10,10 +17,10 @@ import { ArticlesService } from '../../shared';
 export class ListManageComponent implements OnInit {
   @HostBinding('class') readonly layoutClass = 'blog-list-manage blog-layout';
 
-  articleData = {};
+  articleData: ArticleData[];
   pageNumber = 1;
   pageSize = 10;
-  pageTotal = 1;
+  pageTotal = 0;
 
   constructor(
     private articleService: ArticlesService,
@@ -38,7 +45,8 @@ export class ListManageComponent implements OnInit {
   fetchArticles() {
     this.articleService.fetchArticleListInfo(this.pageNumber, this.pageSize)
     .subscribe(articleData => {
-      this.articleData = articleData;
+      console.log(articleData);
+      this.articleData = articleData.body;
     });
   }
 
