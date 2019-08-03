@@ -4,8 +4,9 @@
   </h1>
   <a
     [routerLink]="['/article', articleInfo._id]"
-    class="article-header-calendar">
-    <svg buiIcon="calendar" size="sm"></svg>{{articleInfo.createTime | date: 'y/MM/dd'}}
+    class="article-header-calendar"
+  >
+    <svg buiIcon="calendar" size="sm"></svg>   {{articleInfo.createTime | date: 'y/MM/dd'}}
   </a>
 </div>
 <div class="article-info">

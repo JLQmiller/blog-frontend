@@ -8,7 +8,6 @@ import { ListManageCardComponent } from './list-manage/list-manage-card/list-man
 import { MarkdownModule } from 'ngx-markdown';
 import { BuiModule } from '../shared';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
-import { NgZorroAntdModule, NZ_I18N, zh_CN} from 'ng-zorro-antd';
 
 // TODO
 @NgModule({
@@ -22,7 +21,6 @@ import { NgZorroAntdModule, NZ_I18N, zh_CN} from 'ng-zorro-antd';
     ListRoutingModule,
     BuiModule,
     MarkdownModule.forChild(),
-    NgZorroAntdModule,
     NzPaginationModule,
   ]
 })

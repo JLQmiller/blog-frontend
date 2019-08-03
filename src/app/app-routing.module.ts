@@ -9,6 +9,10 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
+        path: 'resume',
+        loadChildren: () => import('./resume/resume.module').then(m => m.ResumeModule),
+      },
+      {
         path: '',
         loadChildren: () => import('./list/list.module').then(m => m.ListModule),
       },
