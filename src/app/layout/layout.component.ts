@@ -52,6 +52,17 @@ class Article {
         animate('2s cubic-bezier(.215, .61, .355, 1)'),
       ]),
     ]),
+    trigger('mobile', [
+      state('menuShow', style({
+        left: '0',
+      })),
+      state('menuHide', style({
+        left: '-300px',
+      })),
+      transition('menuShow <=> menuHide', [
+        animate('0.5s'),
+      ]),
+    ]),
   ],
 })
 export class LayoutComponent implements OnInit {
@@ -68,6 +79,8 @@ export class LayoutComponent implements OnInit {
 
   articleMenuList: Article[];
 
+  mobile = false;
+
   @HostListener('document:click', ['$event'])
   onclick(btn: Event) {
     if (this.menu.nativeElement.contains(btn.target) || this.menuBtn.nativeElement.contains(btn.target)) {
@@ -80,19 +93,8 @@ export class LayoutComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onresize(event) {
     const width = event.target.innerWidth;
-    console.log(event.target.innerWidth);
     if (width > 800) {
-      this.renderer.setStyle(this.menu.nativeElement, 'position', 'fixed');
-      if (this.isLayoutMenuOpen) {
-        // this.layoutMenuOpen();
-      }
-    } else {
-      if (this.isLayoutMenuOpen) {
-        console.log('change left');
-        this.layoutMenuClose();
-        this.renderer.setStyle(this.menu.nativeElement, 'position', 'relative');
-        // this.renderer.removeStyle(this.menu.nativeElement, 'left');
-      }
+      this.mobile = true;
     }
   }
 

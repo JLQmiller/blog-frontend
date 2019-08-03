@@ -29,7 +29,12 @@
   </div>
 </section>
 <!-- 活动目录 && 关于我 组件 -->
-<section #menu class="blog-tools" [@leftMenuIn]="isLayoutMenuOpen ? 'menuShow' : 'menuHide'">
+<section
+  #menu
+  class="blog-tools"
+  [@leftMenuIn]="isLayoutMenuOpen ? 'menuShow' : 'menuHide'"
+  [@mobile]="mobile"
+>
   <blog-fe-layout-menu (articleChanged)="articleChanged()" *ngIf="leftMenu"></blog-fe-layout-menu>
   <blog-fe-layout-about *ngIf="!leftMenu"></blog-fe-layout-about>
 </section>

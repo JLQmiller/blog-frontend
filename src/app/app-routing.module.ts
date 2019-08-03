@@ -13,10 +13,6 @@ const routes: Routes = [
         loadChildren: () => import('./list/list.module').then(m => m.ListModule),
       },
       {
-        path: 'log',
-        loadChildren: () => import('./log/log.module').then(m => m.LogModule),
-      },
-      {
         path: '',
         redirectTo: '/list/manage',
         pathMatch: 'full',
