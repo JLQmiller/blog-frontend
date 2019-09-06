@@ -10,10 +10,12 @@ import { LayoutModule } from './layout/layout.module';
 
 import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 
-import { NgZorroAntdModule, NZ_I18N, zh_CN} from 'ng-zorro-antd';
+import { NzPaginationModule, NZ_I18N, zh_CN} from 'ng-zorro-antd';
 import zh from '@angular/common/locales/zh';
 import { registerLocaleData } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+// import { NgxAudioPlayerModule } from 'ngx-audio-player';
+
 registerLocaleData(zh);
 
 @NgModule({
@@ -26,6 +28,7 @@ registerLocaleData(zh);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    // NgxAudioPlayerModule,
     MarkdownModule.forRoot({
       loader: HttpClient,
       markedOptions: {
@@ -41,7 +44,7 @@ registerLocaleData(zh);
         }
       }
     }),
-    NgZorroAntdModule,
+    NzPaginationModule,
     SharedModule,
     LayoutModule,
   ],

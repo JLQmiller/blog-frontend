@@ -1,2 +1,6 @@
 <p>resume works!</p>
-<!-- <img [src]="imgSrc" (click)="imgFailed()"> -->
+<img [src]="imgSrc" *ngIf="imgSrc" (error)="imgFailed()">
+<audio [controls]="'controls'" [autoplay]="true" [loop]="true" style="position: absolute; top: 0;">
+  Your browser does not support the <code>audio</code> element.
+  <source [src]="msbapAudioUrl" type="audio/mp3">
+</audio>
